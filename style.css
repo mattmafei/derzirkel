@@ -127,6 +127,18 @@
   .hero-inner{position:relative;z-index:2;max-width:720px;margin:0 auto;}
   .hero-mono{width:88px;height:auto;margin:0 auto 28px;opacity:0.95;}
   .hero h1{margin-bottom:30px;}
+
+  /* ===== Generic masked section photo background (reused on subpages) ===== */
+  .section-photo{position:relative;overflow:hidden;padding-bottom:50px;}
+  .section-photo-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+  .section-photo-bg img{
+    width:100%;height:100%;object-fit:cover;object-position:center 35%;
+    opacity:0.5;filter:saturate(0.45) brightness(0.7) contrast(1.05);
+    -webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 82%);
+    mask-image:radial-gradient(ellipse 65% 60% at 50% 35%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 82%);
+  }
+  .section-photo-bg::after{content:"";position:absolute;inset:0;background:rgba(10,17,31,0.5);}
+  .section-photo > .page-header,.section-photo > .prose{position:relative;z-index:2;}
   .hero-claims{list-style:none;margin:0 0 38px;padding:0;display:flex;flex-direction:column;gap:10px;align-items:center;}
   .hero-claims li{
     font-family:var(--font-display);font-style:italic;font-size:var(--fs-body);color:var(--cream-dim);
